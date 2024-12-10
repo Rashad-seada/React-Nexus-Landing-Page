@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #13001e 0%, #240043 100%);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.neon-glow {
+  text-shadow: 0 0 10px #a855f7,
+               0 0 20px #a855f7,
+               0 0 30px #a855f7,
+               0 0 40px #a855f7;
+}
+
+.neon-box {
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5),
+              0 0 20px rgba(168, 85, 247, 0.3),
+              inset 0 0 30px rgba(168, 85, 247, 0.2);
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.glass-input-container {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glass-input-container::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 0.5rem;
+  padding: 1px;
+  background: linear-gradient(45deg, #a855f7, #ec4899);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.glass-input-container:hover::after {
+  opacity: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.gradient-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
